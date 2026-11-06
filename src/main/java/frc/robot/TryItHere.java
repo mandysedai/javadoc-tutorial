@@ -26,7 +26,7 @@ public final class TryItHere {
     public static void main(String[] args) {
         // TRY: Hover over "Shooter" and "Intake" to see their class-level docs.
         //      Shooter (/** */) shows a full description. Intake (///) shows nothing on
-        //      Java 17 or 21. See the note at the top of Intake.java.
+        //      Java 17. See the note at the top of Intake.java.
         Shooter shooter = new Shooter();
         Intake intake = new Intake();
 

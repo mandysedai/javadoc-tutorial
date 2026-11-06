@@ -75,8 +75,7 @@ version.
 public void spinUp(double rpm) { ... }
 ```
 
-**Markdown (`///`)** uses Markdown instead of HTML. It needs **Java 23 or newer**
-([JEP 467](https://openjdk.org/jeps/467)).
+**Markdown (`///`)** uses Markdown instead of HTML. It needs **Java 23 or newer**.
 
 ```java
 /// Starts spinning the flywheel toward a target speed.
@@ -101,30 +100,36 @@ public void spinUp(double rpm) { ... }
 
 ### ⚠️ Java version: why `Intake` shows no docs
 
-**WPILib robot projects build with the JDK 17 that ships with the WPILib
-installer.** On Java 17 (and 21), `///` is just an ordinary `//` comment that
-happens to start with a slash. So in this project:
+This project targets **Java 17**, the JDK that ships with WPILib before the
+2027 season. On Java 17, `///` is just an ordinary `//` comment that happens
+to start with a slash. So in this project:
 
 - Hovering over anything in `Intake` shows only the signature.
 - `./gradlew javadoc` prints `warning: no comment` for each `Intake` member.
 - The generated HTML for `Intake` has no descriptions.
 
-This is intentional, so you can see the difference. **For robot code, use
-`/** */` comments** until WPILib moves to a JDK that supports `///`.
+This is intentional, so you can see the difference.
 
-### Trying Markdown comments (optional)
+**WPILib moves to Java 25 for the 2027 season.** Java 25 supports `///`, so
+once your team's robot project is on WPILib 2027, both comment styles work in
+robot code. Until then, use `/** */` comments, which work on every version.
 
-To see the `///` comments render, you need a JDK 23 or newer (for example,
-Temurin 25). Do this as an experiment only; don't change real robot projects.
+### Trying Markdown comments
 
-1. Install a JDK 23+.
-2. In [`build.gradle`](build.gradle), change `def javaRelease = 17` to `23`.
-3. Run Gradle with that JDK: set `JAVA_HOME` to it and run `./gradlew javadoc`.
+To see the `///` comments render, you need a JDK 23 or newer. The Java 25 JDK
+that ships with WPILib 2027 works.
+
+1. Install WPILib 2027 (or any JDK 25).
+2. In [`build.gradle`](build.gradle), change `def javaRelease = 17` to `25`.
+3. Run Gradle with that JDK: set `JAVA_HOME` to it (for example,
+   `C:\Users\Public\wpilib\2027\jdk`) and run `./gradlew javadoc`.
    `Intake.html` now has full documentation, and the warnings are gone.
-4. For VS Code hovers, add the JDK under `java.configuration.runtimes` in your
-   settings, then run **Java: Clean Java Language Server Workspace**.
+4. For VS Code hovers, open the project in WPILib 2027 VS Code, or add the JDK
+   under `java.configuration.runtimes` in your settings. Then run
+   **Java: Clean Java Language Server Workspace**.
 
-Change `javaRelease` back to `17` when you're done.
+If your team is still on an older WPILib, change `javaRelease` back to `17`
+when you're done.
 
 ## Exercises
 
@@ -157,7 +162,7 @@ look for.
 11. **Private docs.** In `build.gradle`, uncomment
     `options.memberLevel = JavadocMemberLevel.PRIVATE` and regenerate. Private
     fields like `Shooter.kSimResponse` now appear in the HTML.
-12. **(JDK 23+ only)** Follow *Trying Markdown comments* above, and compare
+12. **(Java 25 / WPILib 2027)** Follow *Trying Markdown comments* above, and compare
     `Intake.html` with `Shooter.html`.
 
 ## Tips for robot code

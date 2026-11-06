@@ -3,11 +3,12 @@ plugins {
     id 'application'
 }
 
-// WPILib robot projects build with the JDK 17 that ships with the WPILib installer,
-// so this tutorial targets Java 17 too.
+// WPILib robot projects build with the JDK that ships with the WPILib installer:
+// Java 17 before 2027, and Java 25 starting with the 2027 season. This tutorial
+// targets Java 17 so it shows how /// comments behave on older versions.
 //
 // TRY: Markdown doc comments (///) need Java 23+. To see them render, run Gradle with
-// a JDK 23+ and change this to 23. (Keep real robot code on WPILib's JDK.)
+// WPILib 2027's JDK (Java 25) and change this to 25.
 def javaRelease = 17
 
 tasks.withType(JavaCompile).configureEach {

@@ -1,8 +1,9 @@
-// TRY: (Intake.java uses Markdown /// doc comments, JEP 467)
+// TRY: (Intake.java uses Markdown /// doc comments)
 //
 // IMPORTANT: /// comments are only doc comments on Java 23 and newer. This project
-// targets Java 17 (WPILib's JDK), so on 17 or 21 they're ordinary comments:
+// targets Java 17 (WPILib's JDK before 2027), so they're ordinary comments here:
 // hovers show nothing, and `./gradlew javadoc` warns "no comment" for every member.
+// WPILib 2027 uses Java 25, so /// comments work in 2027 robot projects.
 //
 //  1. In TryItHere.java, hover over intake.collect() and then shooter.spinUp().
 //     Only the Shooter hover shows documentation.
@@ -15,7 +16,7 @@
 //       <pre>{@code}    -> ``` fenced code block
 //  3. Convert the comment on hasGamePiece() to /** */ style. Save, then hover. It shows
 //     up right away, even on Java 17.
-//  4. (Optional, needs JDK 23+) Follow "Trying Markdown comments" in README.md and
+//  4. (Needs Java 25 / WPILib 2027) Follow "Trying Markdown comments" in README.md and
 //     watch every /// comment in this file turn into real documentation.
 
 package frc.robot.subsystems;
