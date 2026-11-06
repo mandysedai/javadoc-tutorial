@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+// WPILib robot projects build with the JDK 17 that ships with the WPILib installer,
+// so this tutorial targets Java 17 too.
+//
+// TRY: Markdown doc comments (///) need Java 23+. To see them render, run Gradle with
+// a JDK 23+ and change this to 23. (Keep real robot code on WPILib's JDK.)
+def javaRelease = 17
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = javaRelease
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainClass = 'frc.robot.TryItHere'
+}
+
+javadoc {
+    options.encoding = 'UTF-8'
+    options.addStringOption('-release', "$javaRelease")
+    options.author = true   // include @author tags in the HTML
+    options.version = true  // include @version tags in the HTML
+    options.windowTitle = 'Javadoc Tutorial'
+
+    // Doclint checks your comments: missing docs, broken {@link}s, bad HTML.
+    // Broken references and bad HTML are errors; missing comments are warnings.
+    options.addStringOption('Xdoclint:all', '-quiet')
+
+    // TRY: Uncomment to also document private members (useful for team-internal docs).
+    // options.memberLevel = JavadocMemberLevel.PRIVATE
+}

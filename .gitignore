@@ -1,0 +1,10 @@
+# Gradle
+.gradle/
+build/
+
+# VS Code Java extension output
+bin/
+
+# Keep shared VS Code settings, ignore the rest
+.vscode/*
+!.vscode/settings.json
